@@ -6,6 +6,7 @@
 #include"Menu/MenuController.h"
 #include "PascalTriangle.h"
 #include "CenterConsole.h"
+#include <random>
 
 class HomeWork
 {
@@ -13,6 +14,9 @@ private:
 
 	/// Выбор ответа Да или Нет
 	bool SelectionYesNo(std::string text);
+
+	/// Генератор случайных чисел в диапазоне [min; max) 
+	int Random(int min, int max);
 
 	/// Получить строку из n одинаковых строк
 	std::string RepeatCharacter(std::string str, int n);

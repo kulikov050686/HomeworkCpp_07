@@ -11,6 +11,14 @@ bool HomeWork::SelectionYesNo(std::string text)
 	return menu.selectedMenuItem(text) == 0;
 }
 
+int HomeWork::Random(int min, int max)
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+
+	return min + mersenne() % (max - min);
+}
+
 std::string HomeWork::RepeatCharacter(std::string str, int n)
 {
 	std::string temp = "";
@@ -24,6 +32,74 @@ std::string HomeWork::RepeatCharacter(std::string str, int n)
 	}
 
 	return temp;
+}
+
+void HomeWork::Task3()
+{
+}
+
+void HomeWork::Task4()
+{
+	system("cls");
+	setlocale(LC_ALL, "Russian.utf8");
+
+	int positionX = Random(0, 16);
+	int positionY = Random(0, 21);
+	bool exit = false;
+	std::string key;
+
+	std::cout << "Программа управления марсоходом." << std::endl;
+	std::cout << "---------------------------------------" << std::endl;
+	std::cout << "Команды:" << std::endl;
+	std::cout << "W - движение на север" << std::endl;
+	std::cout << "S - движение на юг" << std::endl;
+	std::cout << "A - движение на запад" << std::endl;
+	std::cout << "D - движение на восток" << std::endl;
+	std::cout << "С - выход из программы" << std::endl;
+	std::cout << "---------------------------------------" << std::endl;
+
+	while (!exit)
+	{
+		std::cout << "Марсоход находится на позиции (" << positionX << "," << positionY << ") введите команду :";
+		std::getline(std::cin, key);
+
+		if (key == "w" || key == "W")
+		{
+			if (positionY < 20)
+			{
+				positionY++;
+			}
+		}
+		else if (key == "s" || key == "S")
+		{
+			if (positionY > 0)
+			{
+				positionY--;
+			}
+		}
+		else if (key == "a" || key == "A")
+		{
+			if (positionX > 0)
+			{
+				positionX--;
+			}
+		}
+		else if (key == "d" || key == "D")
+		{
+			if (positionX < 15)
+			{
+				positionX++;
+			}
+		}
+		else if (key == "c" || key == "C")
+		{
+			exit = true;
+		}
+		else
+		{
+			std::cout << "Такой команды не существует!!!" << std::endl;
+		}
+	}
 }
 
 void HomeWork::Task5()
@@ -47,21 +123,22 @@ void HomeWork::Task5()
 		if (bacteriaCount > 0 && amountOfAntibiotic > 0)
 		{
 			for (int i = 1; i <= 10; i++)
-			{				
+			{
+				bacteriaCount = bacteriaCount - amountOfAntibiotic * (10 - i);
+				bacteriaCount = 2 * bacteriaCount;
+
 				std::cout << "Количество бактерий в чашке: ";
 
 				if (bacteriaCount <= 0)
 				{
-					std::cout << 0 << std::endl;
+					bacteriaCount = 0;
+					std::cout << bacteriaCount << " в конце " << i << "-го часа" << std::endl;
 					break;
 				}
 				else
 				{
-					std::cout << bacteriaCount << std::endl;
-				}
-
-				bacteriaCount = bacteriaCount - amountOfAntibiotic * (10 - i);
-				bacteriaCount = 2 * bacteriaCount;
+					std::cout << bacteriaCount << " в конце " << i << "-го часа" << std::endl;
+				}			
 			}						
 		}
 		else
