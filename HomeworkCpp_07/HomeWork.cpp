@@ -36,7 +36,13 @@ std::string HomeWork::RepeatCharacter(std::string str, int n)
 
 void HomeWork::Task1()
 {
-	
+	system("cls");
+	setlocale(LC_ALL, "Russian.utf8");
+
+	for (int i = 0; i <= 25; i++)
+	{
+		std::cout << "Запас гречки гречки: " << 100 - 4*i << std::endl;
+	}
 }
 
 void HomeWork::Task2()
@@ -394,12 +400,12 @@ void HomeWork::Task11()
 	std::string strNumber;
 	int number = 0;
 
-	std::cout << "Введите количество строк теугольника Паскаля: ";
+	std::cout << "Введите количество строк теугольника Паскаля (0 - 20): ";
 	std::getline(std::cin, strNumber);
 
 	if (Convert::ToInt(strNumber, number))
 	{
-		if (number > 0)
+		if (0 < number && number <= 20)
 		{
 			system("cls");
 
@@ -408,7 +414,7 @@ void HomeWork::Task11()
 		}
 		else
 		{
-			std::cout << "Количество строк не может быть меньше нуля!!!" << std::endl;
+			std::cout << "Несоответствие диапазону!!!" << std::endl;
 		}
 	}
 	else
