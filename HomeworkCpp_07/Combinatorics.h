@@ -5,15 +5,15 @@ class Combinatorics
 {
 public:
 
-	/// Факториал
+	/// Р¤Р°РєС‚РѕСЂРёР°Р»
 	static unsigned long long factorial(unsigned short n);
 
-	/// Число сочетаний без повторений (n>=k)
+	/// Р§РёСЃР»Рѕ СЃРѕС‡РµС‚Р°РЅРёР№ Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№ (n>=k)
 	static unsigned long long combinations(unsigned short k, unsigned short n);
 
-	/// Число размещений без повторений (n>=k)
+	/// Р§РёСЃР»Рѕ СЂР°Р·РјРµС‰РµРЅРёР№ Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№ (n>=k)
 	static unsigned long long placement(unsigned short k, unsigned short n);
 
-	/// Умножение натуральных чисел от k до n 
+	/// РЈРјРЅРѕР¶РµРЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅС‹С… С‡РёСЃРµР» РѕС‚ k РґРѕ n 
 	static unsigned long long multiplication(unsigned int k, unsigned int n);
 };

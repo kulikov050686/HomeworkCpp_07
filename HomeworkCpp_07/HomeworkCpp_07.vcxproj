@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CenterConsole.cpp" />
+    <ClCompile Include="CoffeeMachine.cpp" />
+    <ClCompile Include="CoffeeMachineModified.cpp" />
     <ClCompile Include="Combinatorics.cpp" />
     <ClCompile Include="Convert\Convert.cpp" />
     <ClCompile Include="HomeWork.cpp" />
@@ -158,6 +160,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CenterConsole.h" />
+    <ClInclude Include="CoffeeMachine.h" />
+    <ClInclude Include="CoffeeMachineModified.h" />
     <ClInclude Include="Combinatorics.h" />
     <ClInclude Include="Convert\Convert.h" />
     <ClInclude Include="HomeWork.h" />

@@ -16,6 +16,11 @@ Menu::Menu(const string* nameItemsMenu, const int NumberItems)
 
 Menu::Menu(const Menu& object)
 {
+	if (this->ItemsName != nullptr)
+	{
+		delete[] this->ItemsName;
+	}
+
 	this->SizeMenu = object.SizeMenu;
 
 	if (object.ItemsName != nullptr)

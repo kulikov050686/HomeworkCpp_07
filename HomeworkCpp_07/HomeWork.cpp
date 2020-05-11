@@ -34,8 +34,23 @@ std::string HomeWork::RepeatCharacter(std::string str, int n)
 	return temp;
 }
 
+void HomeWork::Task1()
+{
+	
+}
+
+void HomeWork::Task2()
+{
+	CoffeeMachine coffeeMachine;
+
+	coffeeMachine.Run();
+}
+
 void HomeWork::Task3()
 {
+	CoffeeMachineModified coffeeMachineModified;
+
+	coffeeMachineModified.Run();
 }
 
 void HomeWork::Task4()

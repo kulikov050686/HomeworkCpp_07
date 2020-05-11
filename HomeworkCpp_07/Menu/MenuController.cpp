@@ -63,4 +63,3 @@ MenuController::~MenuController()
 		delete menu;
 	}
 }
-

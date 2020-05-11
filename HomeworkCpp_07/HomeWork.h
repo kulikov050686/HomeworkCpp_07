@@ -2,11 +2,13 @@
 #include <iostream>
 #include <string>
 #include <clocale>
+#include <random>
 #include "Convert/Convert.h"
-#include"Menu/MenuController.h"
+#include "Menu/MenuController.h"
 #include "PascalTriangle.h"
 #include "CenterConsole.h"
-#include <random>
+#include "CoffeeMachine.h"
+#include "CoffeeMachineModified.h"
 
 class HomeWork
 {
@@ -53,7 +55,7 @@ public:
 	// Задача 10
 	void Task10();
 
-	// задача 11
+	// Задача 11
 	void Task11();
 };
 
