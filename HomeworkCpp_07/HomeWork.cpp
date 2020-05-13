@@ -34,6 +34,85 @@ std::string HomeWork::RepeatCharacter(std::string str, int n)
 	return temp;
 }
 
+bool HomeWork::Message(int messageCharacterCount, int exclamationMarks)
+{
+	setlocale(LC_ALL, "Russian.utf8");
+
+	std::cout << "Текст сообщения в " << messageCharacterCount << " символов: ";
+
+	setlocale(LC_CTYPE, ".866");
+	std::wstring messageText;
+	std::getline(std::wcin, messageText);	
+
+	if (messageText.length() == messageCharacterCount)
+	{
+		if (messageCharacterCount == exclamationMarks)
+		{
+			for (int i = 0; i < exclamationMarks; i++)
+			{
+				std::wcout << "!";
+			}		
+		}
+		else
+		{
+			if ((messageCharacterCount - exclamationMarks) == 1 || 
+				(messageCharacterCount - exclamationMarks) % 2 == 1)
+			{
+				exclamationMarks--;
+
+				int k = (messageCharacterCount - exclamationMarks) / 2;
+
+				for (int i = 0; i <= messageCharacterCount; i++)
+				{
+					if (i < k)
+					{
+						std::wcout << "~";
+					}
+
+					if (k <= i && i < messageCharacterCount - k)
+					{
+						std::wcout << "!";
+					}
+
+					if (messageCharacterCount - k <= i && i < messageCharacterCount)
+					{
+						std::wcout << "~";
+					}
+				}
+			}
+			else
+			{
+				int k = (messageCharacterCount - exclamationMarks) / 2;
+
+				for (int i = 0; i <= messageCharacterCount; i++)
+				{
+					if (i < k)
+					{
+						std::wcout << "~";
+					}
+
+					if (k <= i && i < messageCharacterCount - k)
+					{
+						std::wcout << "!";
+					}
+
+					if (messageCharacterCount - k <= i && i < messageCharacterCount)
+					{
+						std::wcout << "~";
+					}
+				}
+			}
+		}
+
+		std::wcout << std::endl;
+		std::wcout << messageText << std::endl;
+
+		return true;
+	}
+
+	return false;
+}
+
 void HomeWork::Task1()
 {
 	system("cls");
@@ -145,7 +224,7 @@ void HomeWork::Task5()
 		{
 			for (int i = 1; i <= 10; i++)
 			{
-				bacteriaCount = bacteriaCount - amountOfAntibiotic * (10 - i);
+				bacteriaCount -= amountOfAntibiotic * (10 - i);
 				bacteriaCount = 2 * bacteriaCount;
 
 				std::cout << "Количество бактерий в чашке: ";
@@ -175,27 +254,51 @@ void HomeWork::Task5()
 
 void HomeWork::Task6()
 {
-	const int xmax = 30;
-	const int ymax = 10;
+	system("cls");
+	setlocale(LC_ALL, "Russian.utf8");
 
-	for (int i = 0; i <= ymax; i++)
+	int xmax = 0;
+	int ymax = 0;
+	std::string strXmax;
+	std::string strYmax;
+
+	std::cout << "Введите ширину рамки: ";
+	std::getline(std::cin, strXmax);
+	std::cout << "Ввелите высоту рамки: ";
+	std::getline(std::cin, strYmax);
+
+	if (Convert::ToInt(strXmax, xmax) && Convert::ToInt(strYmax, ymax))
 	{
-		std::cout << "|";
-
-		for (int j = 0; j <= xmax; j++)
+		if (xmax > 0 && ymax > 0)
 		{
-			if (i == 0 || i == ymax)
+			for (int i = 0; i <= ymax; i++)
 			{
-				std::cout << "-";
-			}
-			else
-			{
-				std::cout << " ";
-			}			
-		}
+				std::cout << "|";
 
-		std::cout << "|" << std::endl;
+				for (int j = 0; j <= xmax + 2; j++)
+				{
+					if (i == 0 || i == ymax)
+					{
+						std::cout << "-";
+					}
+					else
+					{
+						std::cout << " ";
+					}
+				}
+
+				std::cout << "|" << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "Ошибка ввода данных!!!" << std::endl;
+		}
 	}
+	else
+	{
+		std::cout << "Ошибка ввода данных!!!" << std::endl;
+	}	
 }
 
 void HomeWork::Task7()
@@ -421,4 +524,67 @@ void HomeWork::Task11()
 	{
 		std::cout << "Ошибка ввода данных!!!" << std::endl;
 	}	
+}
+
+void HomeWork::Task12()
+{
+	system("cls");
+	setlocale(LC_ALL, "Russian.utf8");
+
+	int messageCharacterCount = 0;
+	int exclamationMarks = 0;
+	std::string strMessageCharacterCount;
+	std::string strExclamationMarks;
+	bool exit = false;
+
+	while (!exit)
+	{
+		system("cls");
+
+		std::cout << "Введите количество символов в сообщении (не менее 3): ";
+		std::getline(std::cin, strMessageCharacterCount);
+
+		if (Convert::ToInt(strMessageCharacterCount, messageCharacterCount))
+		{
+			if (messageCharacterCount > 2)
+			{
+				std::cout << "Введите количество восклицательных знаков: ";
+				std::getline(std::cin, strExclamationMarks);
+
+				if (Convert::ToInt(strExclamationMarks, exclamationMarks))
+				{
+					if (exclamationMarks <= messageCharacterCount)
+					{
+						if (Message(messageCharacterCount, exclamationMarks))
+						{
+							exit = true;
+						}
+						else
+						{
+							setlocale(LC_ALL, "Russian.utf8");
+							std::cout << "Ошибка вывода данных!!!" << std::endl;							
+						}
+					}
+					else
+					{
+						std::cout << "Количество восклицательных знаков не может быть больше длины строки!!!" << std::endl;						
+					}
+				}
+				else
+				{
+					std::cout << "Ошибка ввода данных!!!" << std::endl;					
+				}
+			}
+			else
+			{
+				std::cout << "Ошибка ввода данных!!!" << std::endl;				
+			}
+		}
+		else
+		{
+			std::cout << "Ошибка ввода данных!!!" << std::endl;			
+		}
+
+		_getch();
+	}
 }

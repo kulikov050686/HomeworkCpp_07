@@ -6,7 +6,7 @@ int main()
 {
     HomeWork homeWork;
 
-    homeWork.Task1();
+    //homeWork.Task1();
     //homeWork.Task2();
     //homeWork.Task3();
     //homeWork.Task4();
@@ -17,4 +17,5 @@ int main()
     //homeWork.Task9();
     //homeWork.Task10();
     //homeWork.Task11();
+    homeWork.Task12();
 }

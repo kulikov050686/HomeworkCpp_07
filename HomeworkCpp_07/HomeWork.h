@@ -23,6 +23,9 @@ private:
 	/// Получить строку из n одинаковых строк
 	std::string RepeatCharacter(std::string str, int n);
 
+	/// Сообщение
+	bool Message(int messageCharacterCount, int exclamationMarks);
+
 public:
 
 	// Задача 1
@@ -57,5 +60,8 @@ public:
 
 	// Задача 11
 	void Task11();
+
+	/// Задача 12
+	void Task12();
 };
 
